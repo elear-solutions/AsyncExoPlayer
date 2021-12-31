@@ -1990,7 +1990,7 @@ public class AsyncExoPlayer extends BasePlayer
   }
 
   private void sendVolumeToRenderers() {
-    float scaledVolume = volume * audioFocusManager.getVolumeMultiplier();
+    float scaledVolume = volume; // * audioFocusManager.getVolumeMultiplier();
     sendRendererMessage(TRACK_TYPE_AUDIO, MSG_SET_VOLUME, scaledVolume);
   }
 
