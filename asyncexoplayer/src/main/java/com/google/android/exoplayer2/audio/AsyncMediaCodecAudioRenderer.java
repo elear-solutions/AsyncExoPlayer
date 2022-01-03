@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.mediacodec.MediaCodecSelector;
 
 public class AsyncMediaCodecAudioRenderer extends MediaCodecAudioRenderer {
 
-  private static final String TAG = "AsyncMediaCodecAudioRndr";
+  private static final String TAG = "AsyncMediaCodecAudioRdr";
 
   @Nullable
   private Format inputFormat;

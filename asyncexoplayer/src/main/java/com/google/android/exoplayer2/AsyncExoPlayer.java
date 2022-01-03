@@ -300,7 +300,7 @@ public class AsyncExoPlayer extends BasePlayer
               ? analyticsCollectorSupplier
               : () -> new AnalyticsCollector(checkNotNull(clock));
       looper = Util.getCurrentOrMainLooper();
-      audioAttributes = AudioAttributes.DEFAULT;
+      audioAttributes = new AudioAttributes.Builder().setUsage(C.USAGE_VOICE_COMMUNICATION).build();
       wakeMode = C.WAKE_MODE_NONE;
       videoScalingMode = C.VIDEO_SCALING_MODE_DEFAULT;
       videoChangeFrameRateStrategy = C.VIDEO_CHANGE_FRAME_RATE_STRATEGY_ONLY_IF_SEAMLESS;
