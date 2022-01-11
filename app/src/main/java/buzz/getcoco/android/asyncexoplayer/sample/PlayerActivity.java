@@ -3,11 +3,11 @@ package buzz.getcoco.android.asyncexoplayer.sample;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.google.android.exoplayer2.AsyncExoPlayer;
-import com.google.android.exoplayer2.MediaItem;
-import com.google.android.exoplayer2.source.AsyncProgressiveMediaSource;
-import com.google.android.exoplayer2.ui.PlayerView;
-import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
+import buzz.getcoco.exoplayer2.AsyncExoPlayer;
+import buzz.getcoco.exoplayer2.MediaItem;
+import buzz.getcoco.exoplayer2.source.AsyncProgressiveMediaSource;
+import buzz.getcoco.exoplayer2.ui.PlayerView;
+import buzz.getcoco.exoplayer2.upstream.DefaultHttpDataSource;
 
 public class PlayerActivity extends AppCompatActivity {
 

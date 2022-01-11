@@ -1,15 +1,17 @@
-package com.google.android.exoplayer2.video;
+package buzz.getcoco.exoplayer2.video;
 
 import android.content.Context;
 import android.os.Handler;
 import android.util.Log;
 import androidx.annotation.Nullable;
-import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.Format;
-import com.google.android.exoplayer2.FormatHolder;
-import com.google.android.exoplayer2.decoder.DecoderReuseEvaluation;
-import com.google.android.exoplayer2.mediacodec.MediaCodecAdapter;
-import com.google.android.exoplayer2.mediacodec.MediaCodecSelector;
+import buzz.getcoco.exoplayer2.ExoPlaybackException;
+import buzz.getcoco.exoplayer2.Format;
+import buzz.getcoco.exoplayer2.FormatHolder;
+import buzz.getcoco.exoplayer2.decoder.DecoderReuseEvaluation;
+import buzz.getcoco.exoplayer2.mediacodec.MediaCodecAdapter;
+import buzz.getcoco.exoplayer2.mediacodec.MediaCodecSelector;
+import buzz.getcoco.exoplayer2.video.MediaCodecVideoRenderer;
+import buzz.getcoco.exoplayer2.video.VideoRendererEventListener;
 
 public class AsyncMediaCodecVideoRenderer extends MediaCodecVideoRenderer {
 

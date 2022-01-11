@@ -1,21 +1,21 @@
-package com.google.android.exoplayer2;
+package buzz.getcoco.exoplayer2;
 
-import static com.google.android.exoplayer2.C.TRACK_TYPE_AUDIO;
-import static com.google.android.exoplayer2.C.TRACK_TYPE_CAMERA_MOTION;
-import static com.google.android.exoplayer2.C.TRACK_TYPE_VIDEO;
-import static com.google.android.exoplayer2.Renderer.MSG_SET_AUDIO_ATTRIBUTES;
-import static com.google.android.exoplayer2.Renderer.MSG_SET_AUDIO_SESSION_ID;
-import static com.google.android.exoplayer2.Renderer.MSG_SET_AUX_EFFECT_INFO;
-import static com.google.android.exoplayer2.Renderer.MSG_SET_CAMERA_MOTION_LISTENER;
-import static com.google.android.exoplayer2.Renderer.MSG_SET_CHANGE_FRAME_RATE_STRATEGY;
-import static com.google.android.exoplayer2.Renderer.MSG_SET_SCALING_MODE;
-import static com.google.android.exoplayer2.Renderer.MSG_SET_SKIP_SILENCE_ENABLED;
-import static com.google.android.exoplayer2.Renderer.MSG_SET_VIDEO_FRAME_METADATA_LISTENER;
-import static com.google.android.exoplayer2.Renderer.MSG_SET_VIDEO_OUTPUT;
-import static com.google.android.exoplayer2.Renderer.MSG_SET_VOLUME;
-import static com.google.android.exoplayer2.util.Assertions.checkArgument;
-import static com.google.android.exoplayer2.util.Assertions.checkNotNull;
-import static com.google.android.exoplayer2.util.Assertions.checkState;
+import static buzz.getcoco.exoplayer2.C.TRACK_TYPE_AUDIO;
+import static buzz.getcoco.exoplayer2.C.TRACK_TYPE_CAMERA_MOTION;
+import static buzz.getcoco.exoplayer2.C.TRACK_TYPE_VIDEO;
+import static buzz.getcoco.exoplayer2.Renderer.MSG_SET_AUDIO_ATTRIBUTES;
+import static buzz.getcoco.exoplayer2.Renderer.MSG_SET_AUDIO_SESSION_ID;
+import static buzz.getcoco.exoplayer2.Renderer.MSG_SET_AUX_EFFECT_INFO;
+import static buzz.getcoco.exoplayer2.Renderer.MSG_SET_CAMERA_MOTION_LISTENER;
+import static buzz.getcoco.exoplayer2.Renderer.MSG_SET_CHANGE_FRAME_RATE_STRATEGY;
+import static buzz.getcoco.exoplayer2.Renderer.MSG_SET_SCALING_MODE;
+import static buzz.getcoco.exoplayer2.Renderer.MSG_SET_SKIP_SILENCE_ENABLED;
+import static buzz.getcoco.exoplayer2.Renderer.MSG_SET_VIDEO_FRAME_METADATA_LISTENER;
+import static buzz.getcoco.exoplayer2.Renderer.MSG_SET_VIDEO_OUTPUT;
+import static buzz.getcoco.exoplayer2.Renderer.MSG_SET_VOLUME;
+import static buzz.getcoco.exoplayer2.util.Assertions.checkArgument;
+import static buzz.getcoco.exoplayer2.util.Assertions.checkNotNull;
+import static buzz.getcoco.exoplayer2.util.Assertions.checkState;
 
 import android.content.Context;
 import android.graphics.Rect;
@@ -34,47 +34,47 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
-import com.google.android.exoplayer2.analytics.AnalyticsCollector;
-import com.google.android.exoplayer2.analytics.AnalyticsListener;
-import com.google.android.exoplayer2.audio.AsyncMediaCodecAudioRenderer;
-import com.google.android.exoplayer2.audio.AudioAttributes;
-import com.google.android.exoplayer2.audio.AudioRendererEventListener;
-import com.google.android.exoplayer2.audio.AudioSink;
-import com.google.android.exoplayer2.audio.AuxEffectInfo;
-import com.google.android.exoplayer2.audio.MediaCodecAudioRenderer;
-import com.google.android.exoplayer2.decoder.DecoderCounters;
-import com.google.android.exoplayer2.decoder.DecoderReuseEvaluation;
-import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
-import com.google.android.exoplayer2.extractor.ExtractorsFactory;
-import com.google.android.exoplayer2.mediacodec.MediaCodecSelector;
-import com.google.android.exoplayer2.metadata.Metadata;
-import com.google.android.exoplayer2.metadata.MetadataOutput;
-import com.google.android.exoplayer2.source.DefaultMediaSourceFactory;
-import com.google.android.exoplayer2.source.MediaSource;
-import com.google.android.exoplayer2.source.MediaSourceFactory;
-import com.google.android.exoplayer2.source.ShuffleOrder;
-import com.google.android.exoplayer2.source.TrackGroupArray;
-import com.google.android.exoplayer2.text.Cue;
-import com.google.android.exoplayer2.text.TextOutput;
-import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
-import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
-import com.google.android.exoplayer2.trackselection.TrackSelectionParameters;
-import com.google.android.exoplayer2.trackselection.TrackSelector;
-import com.google.android.exoplayer2.upstream.BandwidthMeter;
-import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
-import com.google.android.exoplayer2.util.Clock;
-import com.google.android.exoplayer2.util.ConditionVariable;
-import com.google.android.exoplayer2.util.Log;
-import com.google.android.exoplayer2.util.PriorityTaskManager;
-import com.google.android.exoplayer2.util.Util;
-import com.google.android.exoplayer2.video.AsyncMediaCodecVideoRenderer;
-import com.google.android.exoplayer2.video.MediaCodecVideoRenderer;
-import com.google.android.exoplayer2.video.VideoDecoderOutputBufferRenderer;
-import com.google.android.exoplayer2.video.VideoFrameMetadataListener;
-import com.google.android.exoplayer2.video.VideoRendererEventListener;
-import com.google.android.exoplayer2.video.VideoSize;
-import com.google.android.exoplayer2.video.spherical.CameraMotionListener;
-import com.google.android.exoplayer2.video.spherical.SphericalGLSurfaceView;
+import buzz.getcoco.exoplayer2.analytics.AnalyticsCollector;
+import buzz.getcoco.exoplayer2.analytics.AnalyticsListener;
+import buzz.getcoco.exoplayer2.audio.AsyncMediaCodecAudioRenderer;
+import buzz.getcoco.exoplayer2.audio.AudioAttributes;
+import buzz.getcoco.exoplayer2.audio.AudioRendererEventListener;
+import buzz.getcoco.exoplayer2.audio.AudioSink;
+import buzz.getcoco.exoplayer2.audio.AuxEffectInfo;
+import buzz.getcoco.exoplayer2.audio.MediaCodecAudioRenderer;
+import buzz.getcoco.exoplayer2.decoder.DecoderCounters;
+import buzz.getcoco.exoplayer2.decoder.DecoderReuseEvaluation;
+import buzz.getcoco.exoplayer2.extractor.DefaultExtractorsFactory;
+import buzz.getcoco.exoplayer2.extractor.ExtractorsFactory;
+import buzz.getcoco.exoplayer2.mediacodec.MediaCodecSelector;
+import buzz.getcoco.exoplayer2.metadata.Metadata;
+import buzz.getcoco.exoplayer2.metadata.MetadataOutput;
+import buzz.getcoco.exoplayer2.source.DefaultMediaSourceFactory;
+import buzz.getcoco.exoplayer2.source.MediaSource;
+import buzz.getcoco.exoplayer2.source.MediaSourceFactory;
+import buzz.getcoco.exoplayer2.source.ShuffleOrder;
+import buzz.getcoco.exoplayer2.source.TrackGroupArray;
+import buzz.getcoco.exoplayer2.text.Cue;
+import buzz.getcoco.exoplayer2.text.TextOutput;
+import buzz.getcoco.exoplayer2.trackselection.DefaultTrackSelector;
+import buzz.getcoco.exoplayer2.trackselection.TrackSelectionArray;
+import buzz.getcoco.exoplayer2.trackselection.TrackSelectionParameters;
+import buzz.getcoco.exoplayer2.trackselection.TrackSelector;
+import buzz.getcoco.exoplayer2.upstream.BandwidthMeter;
+import buzz.getcoco.exoplayer2.upstream.DefaultBandwidthMeter;
+import buzz.getcoco.exoplayer2.util.Clock;
+import buzz.getcoco.exoplayer2.util.ConditionVariable;
+import buzz.getcoco.exoplayer2.util.Log;
+import buzz.getcoco.exoplayer2.util.PriorityTaskManager;
+import buzz.getcoco.exoplayer2.util.Util;
+import buzz.getcoco.exoplayer2.video.AsyncMediaCodecVideoRenderer;
+import buzz.getcoco.exoplayer2.video.MediaCodecVideoRenderer;
+import buzz.getcoco.exoplayer2.video.VideoDecoderOutputBufferRenderer;
+import buzz.getcoco.exoplayer2.video.VideoFrameMetadataListener;
+import buzz.getcoco.exoplayer2.video.VideoRendererEventListener;
+import buzz.getcoco.exoplayer2.video.VideoSize;
+import buzz.getcoco.exoplayer2.video.spherical.CameraMotionListener;
+import buzz.getcoco.exoplayer2.video.spherical.SphericalGLSurfaceView;
 import com.google.common.base.Supplier;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -133,10 +133,10 @@ public class AsyncExoPlayer extends BasePlayer
      * <p>Use {@link #Builder(Context, RenderersFactory)}, {@link #Builder(Context,
      * MediaSourceFactory)} or {@link #Builder(Context, RenderersFactory, MediaSourceFactory)}
      * instead, if you intend to provide a custom {@link RenderersFactory}, {@link
-     * ExtractorsFactory} or {@link com.google.android.exoplayer2.source.DefaultMediaSourceFactory}.
+     * ExtractorsFactory} or {@link buzz.getcoco.exoplayer2.source.DefaultMediaSourceFactory}.
      * This is to ensure that ProGuard or
      * R8 can remove ExoPlayer's {@link DefaultRenderersFactory}, {@link DefaultExtractorsFactory}
-     * and {@link com.google.android.exoplayer2.source.DefaultMediaSourceFactory} from the APK.
+     * and {@link buzz.getcoco.exoplayer2.source.DefaultMediaSourceFactory} from the APK.
      *
      * <p>The builder uses the following default values:
      *
