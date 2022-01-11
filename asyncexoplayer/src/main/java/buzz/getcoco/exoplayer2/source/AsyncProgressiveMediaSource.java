@@ -1,25 +1,33 @@
-package com.google.android.exoplayer2.source;
+package buzz.getcoco.exoplayer2.source;
 
 
-import static com.google.android.exoplayer2.util.Assertions.checkNotNull;
+import static buzz.getcoco.exoplayer2.util.Assertions.checkNotNull;
 
 import android.net.Uri;
 import androidx.annotation.Nullable;
-import com.google.android.exoplayer2.C;
-import com.google.android.exoplayer2.MediaItem;
-import com.google.android.exoplayer2.Timeline;
-import com.google.android.exoplayer2.drm.DefaultDrmSessionManagerProvider;
-import com.google.android.exoplayer2.drm.DrmSessionManager;
-import com.google.android.exoplayer2.drm.DrmSessionManagerProvider;
-import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
-import com.google.android.exoplayer2.extractor.Extractor;
-import com.google.android.exoplayer2.extractor.ExtractorsFactory;
-import com.google.android.exoplayer2.upstream.Allocator;
-import com.google.android.exoplayer2.upstream.DataSource;
-import com.google.android.exoplayer2.upstream.DefaultLoadErrorHandlingPolicy;
-import com.google.android.exoplayer2.upstream.HttpDataSource;
-import com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy;
-import com.google.android.exoplayer2.upstream.TransferListener;
+import buzz.getcoco.exoplayer2.C;
+import buzz.getcoco.exoplayer2.MediaItem;
+import buzz.getcoco.exoplayer2.Timeline;
+import buzz.getcoco.exoplayer2.drm.DefaultDrmSessionManagerProvider;
+import buzz.getcoco.exoplayer2.drm.DrmSessionManager;
+import buzz.getcoco.exoplayer2.drm.DrmSessionManagerProvider;
+import buzz.getcoco.exoplayer2.extractor.DefaultExtractorsFactory;
+import buzz.getcoco.exoplayer2.extractor.Extractor;
+import buzz.getcoco.exoplayer2.extractor.ExtractorsFactory;
+import buzz.getcoco.exoplayer2.source.BaseMediaSource;
+import buzz.getcoco.exoplayer2.source.BundledExtractorsAdapter;
+import buzz.getcoco.exoplayer2.source.ForwardingTimeline;
+import buzz.getcoco.exoplayer2.source.MediaPeriod;
+import buzz.getcoco.exoplayer2.source.MediaSourceFactory;
+import buzz.getcoco.exoplayer2.source.ProgressiveMediaExtractor;
+import buzz.getcoco.exoplayer2.source.SequenceableLoader;
+import buzz.getcoco.exoplayer2.source.SinglePeriodTimeline;
+import buzz.getcoco.exoplayer2.upstream.Allocator;
+import buzz.getcoco.exoplayer2.upstream.DataSource;
+import buzz.getcoco.exoplayer2.upstream.DefaultLoadErrorHandlingPolicy;
+import buzz.getcoco.exoplayer2.upstream.HttpDataSource;
+import buzz.getcoco.exoplayer2.upstream.LoadErrorHandlingPolicy;
+import buzz.getcoco.exoplayer2.upstream.TransferListener;
 
 /**
  * Provides one period that loads data from a {@link Uri} and extracted using an {@link Extractor}.

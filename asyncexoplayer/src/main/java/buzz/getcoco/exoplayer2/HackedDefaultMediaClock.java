@@ -1,11 +1,15 @@
-package com.google.android.exoplayer2;
+package buzz.getcoco.exoplayer2;
 
 import androidx.annotation.Nullable;
-import com.google.android.exoplayer2.util.Assertions;
-import com.google.android.exoplayer2.util.Clock;
-import com.google.android.exoplayer2.util.Log;
-import com.google.android.exoplayer2.util.MediaClock;
-import com.google.android.exoplayer2.util.StandaloneMediaClock;
+import buzz.getcoco.exoplayer2.DefaultMediaClock;
+import buzz.getcoco.exoplayer2.ExoPlaybackException;
+import buzz.getcoco.exoplayer2.PlaybackParameters;
+import buzz.getcoco.exoplayer2.Renderer;
+import buzz.getcoco.exoplayer2.util.Assertions;
+import buzz.getcoco.exoplayer2.util.Clock;
+import buzz.getcoco.exoplayer2.util.Log;
+import buzz.getcoco.exoplayer2.util.MediaClock;
+import buzz.getcoco.exoplayer2.util.StandaloneMediaClock;
 
 /**
  * A hacked media clock to not rely on audio renderer clock.

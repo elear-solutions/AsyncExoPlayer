@@ -43,8 +43,7 @@ afterEvaluate {
 }
 
 dependencies {
-
-  implementation 'com.google.android.exoplayer:exoplayer:2.16.1'
+  api 'com.github.elear-solutions:CocoExoPlayer:e1d5938371'
 
   implementation 'androidx.appcompat:appcompat:1.4.0'
   implementation 'com.google.android.material:material:1.4.0'

@@ -1,9 +1,9 @@
-package com.google.android.exoplayer2;
+package buzz.getcoco.exoplayer2;
 
 
-import static com.google.android.exoplayer2.util.Assertions.checkNotNull;
-import static com.google.android.exoplayer2.util.Assertions.checkState;
-import static com.google.android.exoplayer2.util.Util.castNonNull;
+import static buzz.getcoco.exoplayer2.util.Assertions.checkNotNull;
+import static buzz.getcoco.exoplayer2.util.Assertions.checkState;
+import static buzz.getcoco.exoplayer2.util.Util.castNonNull;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 
@@ -16,27 +16,54 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.TextureView;
 import androidx.annotation.Nullable;
-import com.google.android.exoplayer2.analytics.AnalyticsCollector;
-import com.google.android.exoplayer2.audio.AudioAttributes;
-import com.google.android.exoplayer2.metadata.Metadata;
-import com.google.android.exoplayer2.source.MediaSource;
-import com.google.android.exoplayer2.source.MediaSourceFactory;
-import com.google.android.exoplayer2.source.ShuffleOrder;
-import com.google.android.exoplayer2.source.TrackGroupArray;
-import com.google.android.exoplayer2.text.Cue;
-import com.google.android.exoplayer2.trackselection.ExoTrackSelection;
-import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
-import com.google.android.exoplayer2.trackselection.TrackSelectionParameters;
-import com.google.android.exoplayer2.trackselection.TrackSelector;
-import com.google.android.exoplayer2.trackselection.TrackSelectorResult;
-import com.google.android.exoplayer2.upstream.BandwidthMeter;
-import com.google.android.exoplayer2.util.Assertions;
-import com.google.android.exoplayer2.util.Clock;
-import com.google.android.exoplayer2.util.HandlerWrapper;
-import com.google.android.exoplayer2.util.ListenerSet;
-import com.google.android.exoplayer2.util.Log;
-import com.google.android.exoplayer2.util.Util;
-import com.google.android.exoplayer2.video.VideoSize;
+import buzz.getcoco.exoplayer2.BasePlayer;
+import buzz.getcoco.exoplayer2.C;
+import buzz.getcoco.exoplayer2.DeviceInfo;
+import buzz.getcoco.exoplayer2.ExoPlaybackException;
+import buzz.getcoco.exoplayer2.ExoPlayer;
+import buzz.getcoco.exoplayer2.ExoPlayerLibraryInfo;
+import buzz.getcoco.exoplayer2.ExoTimeoutException;
+import buzz.getcoco.exoplayer2.Format;
+import buzz.getcoco.exoplayer2.IllegalSeekPositionException;
+import buzz.getcoco.exoplayer2.LivePlaybackSpeedControl;
+import buzz.getcoco.exoplayer2.LoadControl;
+import buzz.getcoco.exoplayer2.MediaItem;
+import buzz.getcoco.exoplayer2.MediaMetadata;
+import buzz.getcoco.exoplayer2.MediaSourceInfoHolder;
+import buzz.getcoco.exoplayer2.MediaSourceList;
+import buzz.getcoco.exoplayer2.PlaybackException;
+import buzz.getcoco.exoplayer2.PlaybackInfo;
+import buzz.getcoco.exoplayer2.PlaybackParameters;
+import buzz.getcoco.exoplayer2.Player;
+import buzz.getcoco.exoplayer2.PlayerMessage;
+import buzz.getcoco.exoplayer2.PlaylistTimeline;
+import buzz.getcoco.exoplayer2.Renderer;
+import buzz.getcoco.exoplayer2.RendererCapabilities;
+import buzz.getcoco.exoplayer2.RendererConfiguration;
+import buzz.getcoco.exoplayer2.SeekParameters;
+import buzz.getcoco.exoplayer2.Timeline;
+import buzz.getcoco.exoplayer2.TracksInfo;
+import buzz.getcoco.exoplayer2.analytics.AnalyticsCollector;
+import buzz.getcoco.exoplayer2.audio.AudioAttributes;
+import buzz.getcoco.exoplayer2.metadata.Metadata;
+import buzz.getcoco.exoplayer2.source.MediaSource;
+import buzz.getcoco.exoplayer2.source.MediaSourceFactory;
+import buzz.getcoco.exoplayer2.source.ShuffleOrder;
+import buzz.getcoco.exoplayer2.source.TrackGroupArray;
+import buzz.getcoco.exoplayer2.text.Cue;
+import buzz.getcoco.exoplayer2.trackselection.ExoTrackSelection;
+import buzz.getcoco.exoplayer2.trackselection.TrackSelectionArray;
+import buzz.getcoco.exoplayer2.trackselection.TrackSelectionParameters;
+import buzz.getcoco.exoplayer2.trackselection.TrackSelector;
+import buzz.getcoco.exoplayer2.trackselection.TrackSelectorResult;
+import buzz.getcoco.exoplayer2.upstream.BandwidthMeter;
+import buzz.getcoco.exoplayer2.util.Assertions;
+import buzz.getcoco.exoplayer2.util.Clock;
+import buzz.getcoco.exoplayer2.util.HandlerWrapper;
+import buzz.getcoco.exoplayer2.util.ListenerSet;
+import buzz.getcoco.exoplayer2.util.Log;
+import buzz.getcoco.exoplayer2.util.Util;
+import buzz.getcoco.exoplayer2.video.VideoSize;
 import com.google.common.collect.ImmutableList;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -1798,7 +1825,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
    * Builds a {@link MediaMetadata} from the main sources.
    *
    * <p>{@link MediaItem} {@link MediaMetadata} is prioritized, with any gaps/missing fields
-   * populated by metadata from static ({@link com.google.android.exoplayer2.source.TrackGroup}
+   * populated by metadata from static ({@link buzz.getcoco.exoplayer2.source.TrackGroup}
    * {@link Format}) and dynamic ({@link #onMetadata(Metadata)}) sources.
    */
   private MediaMetadata buildUpdatedMediaMetadata() {
